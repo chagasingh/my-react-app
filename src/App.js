@@ -1,7 +1,8 @@
 import ExpenceItem from "./components/Expences/ExpenceItem";
 import NewExpense from "./components/NewExpense/NewExpense";
+import ExpensesFilter from "./components/Expences/ExpensesFilter";
 
-function App() {
+const App=() => {
 
   const expenses = [
     {
@@ -35,7 +36,13 @@ function App() {
     console.log(expenses);
   }
 
-
+  const Expenses = (props) => {
+    const [filteredYear, setFilteredYear] = useState('2020');
+  
+    const filterChangeHandler = selectedYear => {
+      setFilteredYear(selectedYear);
+    };
+  
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
@@ -66,5 +73,5 @@ function App() {
     </div>
   );
 }
-
+}
 export default App;
